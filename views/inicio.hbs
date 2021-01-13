@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Nombre del Proyecto</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        
+            
+        <nav class="navbar navbar-light bg-light" style="color: rgb(56, 66, 109);">
+            <div class="container-fluid">
+                
+                <a class="navbar-brand" href="#">
+                     <img src="assets/img/logo-universidad.png" alt="" width="150" height="40" class="d-inline-block align-top">
+                  
+
+                </a>
+                <h1>
+                    NOMBRE APLICACION 
+                </h1>
+                <button class="btn btn-sm btn-outline-secondary" type="button">Inicio</button>
+               
+                
+            </div>
+            
+        
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <legend class="text-center header">Datos Pacientes</legend>
+                        </div>
+  
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12">
+                                    <div class="well well-sm">
+                                        <form class="form-horizontal" action="/datos" method="post">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="fname" name="nombre_paciente" type="text" placeholder="Nombres" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="lname" name="apellido_paciente" type="text" placeholder="Apellidos" class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <label >Fecha de nacimiento:</label>
+                                                        <input id="number" name="edad_paciente" type="date" placeholder="Edad" class="form-control" max="{{ getfecha }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="phone" name="ocupacion_paciente" type="text" placeholder="Ocupación" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                
+                                            </fieldset>
+                                        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <legend class="text-center header">Datos Doctor</legend>
+                        </div>
+  
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12">
+                                    <div class="well well-sm">
+                                        
+                                            <fieldset>
+                        
+
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="fname" name="nombre_doctor" type="text" placeholder="Nombres" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="lname" name="apellido_doctor" type="text" placeholder="Apellidos" class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="email" name="especialidad_doctor" type="text" placeholder="Especialidad" class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                
+                                            </fieldset>
+                                        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <br>
+            <br>
+            <br>
+        <div class="form-group">
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                                    </div>
+                                                </div>
+        </form>
+       
+        <div>
+          
+            <br>
+            <br>
+            <br>
+        </div>   
+        <br>
+        <br>
+        
+   
+        <footer >
+            <a></a><a></a>
+            <p></p>
+            <p></p>
+            <p></p>   
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                        <div><p style="text-align: center;">© {{ getanio }} Copyright: Wladimir Guallichico Moposita - Jefferson Eduardo Castro Orosco </p></div>
+      
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">    <p style="text-align: right;">  <img  src="/assets/img/logo-universidad.png" height="40px"></p> </div>
+  
+                </div>
+            </div>
+
+
+        </footer>
+       
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>
