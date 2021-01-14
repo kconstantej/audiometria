@@ -8,7 +8,13 @@ const hbs = require('hbs');
 
 const async = require('async');
 
+const pdf = require('html-pdf');
+
 const bodyParser = require('body-parser');
+
+
+
+
 
 require('./hbs/helpers')
 
@@ -28,7 +34,16 @@ app.use(bodyParser.json());
 
 
 
-
+var datos={}
+var nombre_paciente;
+var apellido_paciente;
+var edad_paciente;
+var ocupacion_paciente;
+var nombre_doctor;
+var apellido_doctor;
+var especialidad_doctor;
+var cal_edad;
+var edad;
 
 const port =process.env.PORT || 3000;
 
@@ -54,29 +69,57 @@ app.get('/registro', function (req, res) {
   });
 
   app.post('/datos', function (request, res) {
-    var nombre_paciente = request.body.nombre_paciente;
-    var apellido_paciente = request.body.apellido_paciente;
-    var edad_paciente = request.body.edad_paciente;
-    var ocupacion_paciente = request.body.ocupacion_paciente;
-    var nombre_doctor = request.body.nombre_doctor;
-    var apellido_doctor = request.body.apellido_doctor;
-    var especialidad_doctor = request.body.especialidad_doctor;
     
-    var datos={
-        nombre_paciente : nombre_paciente,
-        apellido_paciente : apellido_paciente,
-        edad_paciente : edad_paciente,
-        ocupacion_paciente : ocupacion_paciente,
-        nombre_doctor : nombre_doctor,
-        apellido_doctor : apellido_doctor,
-        especialidad_doctor : especialidad_doctor
+    this.nombre_paciente = request.body.nombre_paciente;
+    this.apellido_paciente = request.body.apellido_paciente;
+    this.edad_paciente = request.body.edad_paciente;
+    this.ocupacion_paciente = request.body.ocupacion_paciente;
+    this.nombre_doctor = request.body.nombre_doctor;
+    this.apellido_doctor = request.body.apellido_doctor;
+    this.especialidad_doctor = request.body.especialidad_doctor;
+    this.cal_edad = this.edad_paciente.split('-');
+    
+    this.edad =calculate_age(this.cal_edad[1],this.cal_edad[2],this.cal_edad[0]);
+    
+    this.datos={
+        nombre_paciente : this.nombre_paciente,
+        apellido_paciente : this.apellido_paciente,
+        edad_paciente : this.edad_paciente,
+        ocupacion_paciente : this.ocupacion_paciente,
+        nombre_doctor : this.nombre_doctor,
+        apellido_doctor : this.apellido_doctor,
+        especialidad_doctor : this.especialidad_doctor,
+        edad : this.edad
     }
 
-    console.log(datos)
     res.render('seleccion');
   });
 
+app.get('/pdf', async function (req, res) {
+    console.log(this.datos)
+    res.render('pdf',this.datos)
+});
+
+
 app.listen(port,()=>{
     console.log(`escuchando por el puerto ${port}`)
-})
+});
 
+function calculate_age(birth_month,birth_day,birth_year)
+{
+       today_date = new Date();
+       today_year = today_date.getFullYear();
+       today_month = today_date.getMonth();
+       today_day = today_date.getDate();
+       age = today_year - birth_year;
+
+       if ( today_month < (birth_month - 1))
+       {
+           age--;
+       }
+       if (((birth_month - 1) == today_month) && (today_day < birth_day))
+       {
+           age--;
+       }
+       return age;
+}
