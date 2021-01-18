@@ -8,7 +8,7 @@
          <link rel="stylesheet" href="assets/css/style.css" />
          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script type="text/javascript" src="assets/js/funciones.js"></script>
-        {{!-- <script type="text/javascript" src="assets/js/llamadaJson.js"></script> --}}
+       <script type="text/javascript" src="assets/js/llamadaJson.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -55,7 +55,7 @@
             <div class="col-6" style="text-align: end;">
                 <br>
                 <br>
-                <button type="button" class="btn btn-dark">
+                <button type="button" class="btn btn-dark" onclick="clickOido('izquierdo')">
 
                     <img src="assets/img/oido_izquierdo.png"> 
 
@@ -66,7 +66,7 @@
                 <div class="col-6" style="text-align: left;">    
                     <br>
                     <br>
-                    <button type="button" class="btn btn-dark">
+                    <button type="button" class="btn btn-dark" onclick="clickOido('derecho')">
 
                         <img src="assets/img/oido_derecho.png"> 
 
@@ -169,18 +169,20 @@
 
         <div  style="text-align: center;">   
 
-                <button type="button" class="btn btn-success" onclick="renderizar()" style="background-color: black; height:50px; width:130px" >Reproducir</button>
+                <button type="button" class="btn btn-success" onclick="enviarDatos()" style="background-color: black; height:50px; width:130px" >Reproducir</button>
 
 
         </div>
+<div style="text-align: end;">
 
-        <div  style="text-align: end;">
-       
-        <button type="button" >
-            <img src="assets/img/logo-pdf.png" alt="Reporte PDF" width="50px" height="50px">
-        </button>
-        
-        </div>
+<form method="get" action="/pdf">
+    <button type="submit" >
+        <img src="assets/img/logo-pdf.png" alt="Reporte PDF" width="50px" height="50px">
+    </button>
+</form>
+
+
+</div>
         
 
 
