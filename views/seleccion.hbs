@@ -15,7 +15,11 @@
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/modules/sonification.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-        
+        <script src="assets/js/sweetalert2.all.min.js"></script>
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+        {{!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> --}}
+         <script src="assets/js/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="assets/css/sweetalert2.min.css">  
 
     </head>
     <body>
@@ -25,12 +29,12 @@
                 <a class="navbar-brand" href="#">
                      <img src="assets/img/logo-universidad.png" alt="" width="150" height="40" class="d-inline-block align-top">
                   
-
+           
                 </a>
-                <h1>
+                     <h1 style="text-align: center;">
                  DIGITAL AUDIOMETER
-                </h1>
-                <button  class="btn btn-sm btn-outline-secondary" type="button"><a href="/">INICIO</a></button>
+                         </h1>
+                <button  class="btn btn-sm btn-outline-secondary" type="button" style="visibility: hidden;"><a href="/" >INICIO</a></button>
                
                 
             </div>
@@ -55,8 +59,8 @@
             <div class="col-6" style="text-align: end;">
                 <br>
                 <br>
-                <button type="button" class="btn btn-dark" onclick="clickOido('izquierdo')">
-
+                <button type="button" class="btn btn-primary"  onclick="clickOido('derecho')">
+                   Derecho
                     <img src="assets/img/oido_izquierdo.png"> 
 
                 </button>
@@ -66,10 +70,10 @@
                 <div class="col-6" style="text-align: left;">    
                     <br>
                     <br>
-                    <button type="button" class="btn btn-dark" onclick="clickOido('derecho')">
-
+                    <button type="button" class="btn btn-dark" onclick="clickOido('izquierdo')">
+                        Izquierdo
                         <img src="assets/img/oido_derecho.png"> 
-
+                       
                     </button>
 
                  </div>        
@@ -78,85 +82,162 @@
         <br>
         <br> 
 
-
-      <nav class="navbar navbar-israel bg-israel" style="background-color: #04307c;" >
+   <nav class="navbar navbar-israel bg-israel" style="background-color: #04307c;" >
             <div class="container-fluid" >
                      <a class="navbar-brand"  style="color: white;" >
                     
-                    Elige un nivel de dB
                     
                 </a>
                 
             </div>
         </nav>
+
      
 <br> 
 
 
-<div class="row justify-content-md-center">
-    <div class="col-4" style="text-align: end;">
+       <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <legend class="text-center header">Decibeles (dB)</legend>
+                        </div>
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12">
+                                    <div class="well well-sm">
+                                            
+                                                <div class="form-group">
+                                                   
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <button onclick="decibeles('val',1)" style="width: 30px;">+</button>
+                                                        
+                                                    </div>
+                                                       
+                                                     
+                                                </div>
+                                                <br>
 
-<button onclick="decibeles('val',0)">-</button>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <input id="val" class="w3-input w3-border w3-animate-input" type="text" style="text-align: center; width: 100%;" value="0" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                            <button onclick="decibeles('val',0)" style="width:30px;">-</button>
+                                                   </div>
+                                                </div>
 
-    </div>
+                                                
+                                                
+                                            
+                                        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="col-4" style="text-align: center;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12">
+                                    <div class="well well-sm">
+                                        
+                                            
 
-<form class="w3-container">
-<input id="val" class="w3-input w3-border w3-animate-input" type="text" style="text-align: center; width: 100%;" value="0" readonly="readonly">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <figure class="highcharts-figure">
+                                                            <div id="container"></div>
+                                                                <p class="highcharts-description">
+     
+                                                                </p>
+                                                        </figure>                                                        
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-12">          
+                                                    </div>
+                                                </div>
+
+                                                
+                                                
+                                            
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-</form>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <legend class="text-center header">Hertz (Hz)</legend>
+                        </div>
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12">
+                                    <div class="well well-sm">
+                                        
+                                            
 
-    </div>
+                                                <div class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        
+                                                        <button onclick="heartz('hz',1)" style="width:30px;">+</button>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <input id="hz" class="w3-input w3-border w3-animate-input" type="text" style="text-align: center; width: 100%;" value="125" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group" style="text-align: center;">
+                                                    <div class="col-md-12">
+                                                
+                                                        <button onclick="heartz('hz',0)" style="width:30px;">-</button>
+    
 
-    <div class="col-4" style="text-align: left;">
+                                                    </div>
+                                                </div>
 
-<button onclick="decibeles('val',1)">+</button>
+                                                
+                                                
+                                            
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div> 
 
-    </div>
-
-</div>
-<br>
-
-
-      <nav class="navbar navbar-israel bg-israel" style="background-color: #04307c;" >
-            <div class="container-fluid" >
-                     <a class="navbar-brand"  style="color: white;" >
-                    
-                    Elige un nivel de Hz
-                    
-                </a>
-                
+                        
             </div>
-        </nav>
+        </div>
+ 
 
-<br> 
-
-<div class="row justify-content-md-center">
-    <div class="col-4" style="text-align: end;">
-
-<button onclick="heartz('hz',0)">-</button>
-
-    </div>
-
-    <div class="col-4" style="text-align: center;">
-
-<form class="w3-container">
-<input id="hz" class="w3-input w3-border w3-animate-input" type="text" style="text-align: center; width: 100%;" value="125" readonly="readonly">
-
-
-</form>
-
-    </div>
-
-    <div class="col-4" style="text-align: left;">
-
-<button onclick="heartz('hz',1)">+</button>
-
-    </div>
-
-</div>
 <div>
 <br>
 <br>
@@ -164,34 +245,42 @@
 </div>
 
 
+   <nav class="navbar navbar-israel bg-israel" style="background-color: #04307c;" >
+            <div class="container-fluid" >
+                     <a class="navbar-brand"  style="color: white;" >
+                    
+                    
+                </a>
+                
+            </div>
+        </nav>
 
-
-
+<br>
+<br>
         <div  style="text-align: center;">   
 
-                <button type="button" class="btn btn-success" onclick="enviarDatos()" style="background-color: black; height:50px; width:130px" >Reproducir</button>
+                <button  type="button" class="btn btn-success" onclick="enviarDatos()" style="background-color:  #04307c; height:50px; width:130px" >Reproducir</button>
 
 
         </div>
-<div style="text-align: end;">
 
-<form method="get" action="/pdf">
-    <button type="submit" >
-        <img src="assets/img/logo-pdf.png" alt="Reporte PDF" width="50px" height="50px">
+        <br>
+<div style="text-align: center;">
+
+<form method="get" action="/pdf" style="color: white;">
+    <button id="nueva_consulta" class="btn btn-success" type="submit" style="background-color: #04307c; color:white" >
+         Exportar
+        <img src="assets/img/logo-pdf.png" alt="Reporte PDF" width="100px" height="70px" style="color: white;">
+                        
     </button>
 </form>
+
 
 
 </div>
         
 
 
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-     
-    </p>
-</figure>
 
 
 <style type="text/css">
@@ -346,22 +435,26 @@ Highcharts.chart('container', {
 
 
 
-  <footer >
-   
+     <footer >
+            <a></a><a></a>
+            <p></p>
+            <p></p>
+            <p></p>   
 
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                    <div><p style="text-align: center;">© {{ getanio }} Copyright: Wladimir Guallichico Moposita - Jefferson Eduardo Castro Orosco </p></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                        <div><p style="text-align: center;">© {{ getanio }} Copyright: Wladimir Guallichico Moposita - Jefferson Eduardo Castro Orosco </p></div>
       
-                </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">    <p style="text-align: right;">  <img  src="/assets/img/logo-universidad.png" height="40px"></p> </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">    <p style="text-align: right;"> <img  src="/assets/img/logo-universidad.png" height="40px"></p> </div>
   
+                </div>
             </div>
-        </div>
 
 
-    </footer>
+        </footer>
+       
         
     </body>
 

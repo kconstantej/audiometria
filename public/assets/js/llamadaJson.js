@@ -1,9 +1,12 @@
+
+
 var peticion = obtenerXHR();
 var pantallaCarga = 0;
 var ladoOido = -1;
 var valLadoOido;
 var valordB = 0;
 var valorHz = 0;
+
 
 renderizar();
 var o;
@@ -58,6 +61,7 @@ function clickOido(id) {
 
 async function enviarDatos(){
   clickOido();
+  
   this.valordB = document.getElementById('val').value;
   this.valorHz = document.getElementById('hz').value;
 
@@ -71,6 +75,8 @@ async function enviarDatos(){
     }
     else {
       console.log('DEBE ELEGIR UN VALOR')
+    
+    alert('Debe elegir un oido para continuar');      
       return;
     }
     }
@@ -95,7 +101,9 @@ async function enviarDatos(){
     },
     body: formBody
   
- })
+ });
+
+ //renderizar();
 
   
 }
