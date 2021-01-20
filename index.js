@@ -88,6 +88,13 @@ app.get('/registro', function (req, res) {
     this.apellido_doctor = request.body.apellido_doctor;
     this.especialidad_doctor = request.body.especialidad_doctor;
     this.cal_edad = this.edad_paciente.split('-');
+
+    this.nombre_paciente = this.nombre_paciente.toUpperCase();
+    this.apellido_paciente = this.apellido_paciente.toUpperCase();
+    this.ocupacion_paciente = this.ocupacion_paciente.toUpperCase();
+    this.nombre_doctor = this.nombre_doctor.toUpperCase();
+    this.apellido_doctor = this.apellido_doctor.toUpperCase();
+    this.especialidad_doctor = this.especialidad_doctor.toUpperCase();;
     
     this.edad =calculate_age(this.cal_edad[1],this.cal_edad[2],this.cal_edad[0]);
     
@@ -101,7 +108,7 @@ app.get('/registro', function (req, res) {
         especialidad_doctor : this.especialidad_doctor,
         edad : this.edad
     }
-
+    
     res.render('escoger');
   });
 app.get('/escoger', async function(req, res){
@@ -114,6 +121,11 @@ app.post('/pdf', async function (req, res) {
     this.odi = req.body.odi;
     this.otoscopia = req.body.otoscopia;
     this.recomendaciones = req.body.recomendaciones;
+
+    this.odd = this.odd.toUpperCase();
+    this.odi = this.odi.toUpperCase();
+    this.otoscopia = this.otoscopia.toUpperCase();
+    this.recomendaciones = this.recomendaciones.toUpperCase();
 
     this.datos={
         nombre_paciente : this.nombre_paciente,
