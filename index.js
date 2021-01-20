@@ -49,6 +49,10 @@ var datosOidos = {};
 var lado_oido;
 var val_db;
 var val_hz;
+var odd;
+var odi;
+var otoscopia;
+var recomendaciones;
 
 
 const port =process.env.PORT || 3000;
@@ -98,14 +102,41 @@ app.get('/registro', function (req, res) {
         edad : this.edad
     }
 
-    res.render('seleccion');
+    res.render('escoger');
   });
+app.get('/escoger', async function(req, res){
+    
+    res.render('escoger',this.datos);
+});
+app.post('/pdf', async function (req, res) {
+    
+    this.odd = req.body.odd;
+    this.odi = req.body.odi;
+    this.otoscopia = req.body.otoscopia;
+    this.recomendaciones = req.body.recomendaciones;
 
-app.get('/pdf', async function (req, res) {
-   
+    this.datos={
+        nombre_paciente : this.nombre_paciente,
+        apellido_paciente : this.apellido_paciente,
+        edad_paciente : this.edad_paciente,
+        ocupacion_paciente : this.ocupacion_paciente,
+        nombre_doctor : this.nombre_doctor,
+        apellido_doctor : this.apellido_doctor,
+        especialidad_doctor : this.especialidad_doctor,
+        edad : this.edad,
+        otoscopia : this.otoscopia,
+        odd : this.odd,
+        odi : this.odi,
+        recomendaciones : this.recomendaciones
+    }
+    
     res.render('pdf',this.datos)
 });
 
+app.get('/logo_audiometria', async function (req, res) {
+   
+    res.render('logo_audiometria',this.datos)
+});
 
 
 app.post('/oidos', function(req,res) {

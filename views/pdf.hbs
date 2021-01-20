@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>
-        {{nombre_paciente}}_{{apellido_paciente}}_{{getfecha}}
+        {{nombre_paciente}}{{apellido_paciente}}{{getfecha}}
     </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />       
@@ -251,7 +251,7 @@ Highcharts.chart('container', {
         <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                <h5>
-                   OTOSCOPIA: 
+                   OTOSCOPIA: {{ otoscopia }}
                </h5>
                 
                 
@@ -265,7 +265,7 @@ Highcharts.chart('container', {
         <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                <h5>
-                   DIAGNOSTICO: OD: 
+                   DIAGNOSTICO: OD: {{ odd }}
                </h5>
                 
                 
@@ -279,7 +279,7 @@ Highcharts.chart('container', {
         <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                <h5>
-                   DIAGNOSTICO: ID: 
+                   DIAGNOSTICO: ID: {{ odi }}
                </h5>
                 
                 
@@ -293,7 +293,7 @@ Highcharts.chart('container', {
         <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                <h5>
-                   RECOMENDACIONES: 
+                   RECOMENDACIONES: {{ recomendaciones }}
                </h5>
                 
                 
@@ -363,7 +363,7 @@ Highcharts.chart('container', {
             </div>
         </div>
     </div>
-
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
@@ -372,8 +372,28 @@ Highcharts.chart('container', {
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div class="col-md-12 text-center">
                    <button id="nueva_consulta" type="button" class="btn btn-success" style="display:none;background-color: #04307c; color:white">
-                       <a href="/inicio" style="color:#FFFFFF">
+                       <a href="/escoger" style="color:#FFFFFF">
                            Nueva Consulta
+                       </a>
+                    </button>
+                </div>
+            </div>
+            <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
+               
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-md-12 text-center">
+                   <button id="nueva_paciente" type="button" class="btn btn-success" style="display:none;background-color: #04307c; color:white">
+                       <a href="/inicio" style="color:#FFFFFF">
+                           Nuevo Paciente
                        </a>
                     </button>
                 </div>
