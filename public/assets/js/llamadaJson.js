@@ -6,6 +6,7 @@ var ladoOido = -1;
 var valLadoOido;
 var valordB = 0;
 var valorHz = 0;
+var pal= '';
 
 
 renderizar();
@@ -64,7 +65,12 @@ async function enviarDatos(){
   
   this.valordB = document.getElementById('val').value;
   this.valorHz = document.getElementById('hz').value;
+  this.pal = document.getElementById('palabras').value;
 
+  if(this.pal == 'no'){
+    alert('Debe Seleccionar una Palabra');
+    return;
+  }
 
   if (this.ladoOido == 1){
     this.valLadoOido = "oido izquierdo"
@@ -80,6 +86,7 @@ async function enviarDatos(){
       return;
     }
     }
+  
 
   console.log('dB',this.valordB);
   console.log('Hz',this.valorHz)

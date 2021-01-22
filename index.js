@@ -147,7 +147,11 @@ app.post('/pdf', async function (req, res) {
 
 app.get('/logo_audiometria', async function (req, res) {
    
-    res.render('logo_audiometria',this.datos)
+    palabras=[{pal:'casa'},{pal:'perro'}];
+    resul={
+        palabras
+    }
+    res.render('logo_audiometria',resul)
 });
 
 
