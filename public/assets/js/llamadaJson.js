@@ -8,6 +8,8 @@ var valordB = 0;
 var valorHz = 0;
 var pal= '';
 
+var c="33";
+var y="55";
 
 renderizar();
 var o;

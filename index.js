@@ -147,7 +147,22 @@ app.post('/pdf', async function (req, res) {
 
 app.get('/logo_audiometria', async function (req, res) {
    
-    palabras=[{pal:'casa'},{pal:'perro'}];
+    palabras=[
+        {pal:'ROMO'},
+        {pal:'LADO'},
+        {pal:'BERRO'},
+        {pal:'LADO'},
+        {pal:'MILLO'},
+        {pal:'CERA'},
+        {pal:'PUCHO'},
+        {pal:'LUIS'},
+        {pal:'COIRO'},
+        {pal:'VIDA'},
+        {pal:'BARRIL'},
+        {pal:'SUMA'},
+        {pal:'TOLO'},
+        {pal:'MUDO'}
+    ];
     resul={
         palabras
     }
