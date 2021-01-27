@@ -59,8 +59,8 @@
             <div class="col-6" style="text-align: end;">
                 <br>
                 <br>
-                <button type="button" class="btn btn-primary"  onclick="clickOido('derecho')">
-                   Derecho
+                <button type="button" style="background-color: #df1130;"  onclick="clickOido('derecho')">
+                  <b style="color: black;"> <i> Derecho </i></b>
                     <img src="assets/img/oido_izquierdo.png"> 
 
                 </button>
@@ -70,11 +70,12 @@
                 <div class="col-6" style="text-align: left;">    
                     <br>
                     <br>
-                    <button type="button" class="btn btn-dark" onclick="clickOido('izquierdo')">
-                        Izquierdo
+                  <button type="button" style="background-color: rgb(9, 111, 245);" onclick="clickOido('izquierdo')">
+                       <b style="color: rgba(53, 47, 47, 0.945);"><i> Izquierdo </i> </b> 
                         <img src="assets/img/oido_derecho.png"> 
                        
                     </button>
+
 
                  </div>        
         </div>
@@ -460,7 +461,7 @@ Highcharts.chart('container', {
         text: 'Gráfica de resultados Audiometría'
     },
     subtitle: {
-        text: 'Oido Derecho (Right)  - Oido Izquierdo (Left)'
+        text: 'Oído Derecho (Right)  - Oido Izquierdo (Left)'
     },
     xAxis: {
         lineWidth: 2,
@@ -505,11 +506,13 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Oido Derecho (Hz)',
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
         data: this.o.oido_derecho
     },
     {
-    name: 'Oido Izquierdo (Hz)',
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
         data: this.o.oido_izquierdo
     }]
 });

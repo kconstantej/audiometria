@@ -192,7 +192,7 @@ Highcharts.chart('container', {
         text: 'Gráfica de resultados Audiometría'
     },
     subtitle: {
-        text: 'Oido Derecho (Right)  - Oido Izquierdo (Left)'
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
     },
     xAxis: {
         lineWidth: 2,
@@ -237,11 +237,13 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Oido Derecho (Hz)',
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
         data: this.o.oido_derecho
     },
     {
-    name: 'Oido Izquierdo (Hz)',
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
         data: this.o.oido_izquierdo
     }]
 });
