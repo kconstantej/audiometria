@@ -146,7 +146,15 @@
 
 <script type="text/javascript">
 
+var value;
+function traerLocalStorage(){
 
+    let valor = parseInt( localStorage.getItem('id') ); 
+
+ 
+    return valor;
+
+}
 var datosJson;
 
 
@@ -180,8 +188,75 @@ function procesarPeticion() {
         }
     }
 
-  
+value = traerLocalStorage();
 
+if (value == 1){
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: [[40,500], [20, 500]]
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: [[80,500], [120, 250], [50,2000]]
+    }]
+});
+}
+else {
 // Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
 Highcharts.chart('container', {
     chart: {
@@ -239,14 +314,19 @@ Highcharts.chart('container', {
     series: [{
         name: 'Oído Derecho (Hz)',
         color: '#df1130',
-        data: this.o.oido_derecho
+        data: [[30,125], [40, 250], [50, 500]]
     },
     {
     name: 'Oído Izquierdo (Hz)',
     color: 'rgb(9, 111, 245)',
-        data: this.o.oido_izquierdo
+        data: [[10,125]]
     }]
 });
+
+}
+
+
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
 }
 </script>
 
@@ -419,6 +499,8 @@ Highcharts.chart('container', {
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    
+    <script>
+        localStorage.setItem('value','-3')
+    </script>
 </body>
 </html>

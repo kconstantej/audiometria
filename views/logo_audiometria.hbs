@@ -435,6 +435,21 @@
 
 <script type="text/javascript">
 
+var value;
+
+function guardarLocalStorage(){
+
+    let valor = parseInt( localStorage.getItem('value') ); 
+
+    valor = valor+1
+    
+    localStorage.setItem('value',valor)
+    localStorage.setItem('id',2)
+    return valor;
+
+}
+
+
 
 var datosJson;
 
@@ -464,14 +479,21 @@ function procesarPeticion() {
     if (peticion.readyState == 4){
         if(peticion.status == 200) {
            // console.log("casa")
-            this.o= JSON.parse(peticion.responseText);
+            //this.o= JSON.parse(peticion.responseText);
          //   console.log(this.o.oido_derecho);
         }
     }
 
-  
 
+
+value = guardarLocalStorage();
+
+
+
+if (value == 0){
 // Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+
+
 Highcharts.chart('container', {
     chart: {
         type: 'spline',
@@ -528,14 +550,367 @@ Highcharts.chart('container', {
     series: [{
         name: 'Oído Derecho (Hz)',
         color: '#df1130',
-        data: this.o.oido_derecho
+        data: []
     },
     {
     name: 'Oído Izquierdo (Hz)',
     color: 'rgb(9, 111, 245)',
-        data: this.o.oido_izquierdo
+        data: []
     }]
 });
+}
+
+if (value == 4){
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+alert('Espera de respuesta ....');
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: []
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: []
+    }]
+});
+}
+
+
+if (value == 8){
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+alert('Espera de respuesta ....');
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: [[30,125]]
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: []
+    }]
+});
+}
+
+
+if (value == 12){
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+alert('Espera de respuesta ....');
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: [[30,125], [40, 250]]
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: []
+    }]
+});
+}
+
+
+if (value == 16){
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+alert('Espera de respuesta ....');
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: [[30,125], [40, 250]]
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: [[10,125]]
+    }]
+});
+}
+
+
+
+if (value == 20){
+// Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
+alert('Espera de respuesta ....');
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Gráfica de resultados Audiometría'
+    },
+    subtitle: {
+        text: 'Oído Derecho (Right)  - Oído Izquierdo (Left)'
+    },
+    xAxis: {
+        lineWidth: 2,
+        reversed: false,
+        title: {
+            enabled: true,
+            text: ' Decibeles (dB)'
+        },
+        labels: {
+            format: '{value} dB'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 0 to 130 dB.'
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hertz (Hz)'
+        },
+        labels: {
+            format: '{value}Hz'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 8k to 125 Hz.'
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} dB: {point.y}Hz'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Oído Derecho (Hz)',
+        color: '#df1130',
+        data: [[30,125], [40, 250], [50,500]]
+    },
+    {
+    name: 'Oído Izquierdo (Hz)',
+    color: 'rgb(9, 111, 245)',
+        data: [[10,125]]
+    }]
+});
+}
+
+
 }
 </script>
 
@@ -543,9 +918,6 @@ Highcharts.chart('container', {
 <br>
 <br>
 <br>
-
-
-
 
      <footer >
             <a></a><a></a>

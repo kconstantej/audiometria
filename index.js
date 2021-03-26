@@ -174,7 +174,7 @@ app.post('/oidos', function(req,res) {
 
     
 
-    console.log(req.body.name)
+    //console.log(req.body.name)
 
 });
 

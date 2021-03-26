@@ -36,12 +36,28 @@ function renderizar(){
     }
   }
 
-async function procesarPeticion() {
+  function renderizar1(){
+    //configutando la peticion
+    peticion.open("GET", "assets/services/data.json", true);
+    //relacionando la peticion onreadystatechange
+    peticion.onreadystatechange = procesarPeticion;
+    //enviando la peticion
+    peticion.send(null);
+
+    if (this.pantallaCarga != 0){
+        enviarDato();
+    }else {
+      this.pantallaCarga = 1;
+    }
+  }
+
+
+  async function procesarPeticion() {
 
     if (peticion.readyState == 4){
       if(peticion.status == 200) {
         this.o= await JSON.parse(peticion.responseText);
-        console.log(`Respuesta: ${peticion.responseText}`);
+       
       }
   }
   //console.log('AA',peticion.responseText);
@@ -111,6 +127,57 @@ async function enviarDatos(){
     body: formBody
   
  });
+
+  renderizar();
+
+  
+}
+
+async function enviarDato(){
+
+
+ 
+  clickOido();
+  
+  this.valordB = document.getElementById('val').value;
+  this.valorHz = document.getElementById('hz').value;
+
+
+ 
+
+  if (this.ladoOido == 1){
+    this.valLadoOido = "oido izquierdo"
+  }else {
+    if (this.ladoOido == 2) {
+      this.valLadoOido = "oido derecho";
+  
+    }
+    else {
+      console.log('DEBE ELEGIR UN VALOR')
+    
+    alert('Debe elegir un oido para continuar');      
+      return;
+    }
+    }
+  
+    var formBody = [];
+  
+    var encodedKey = encodeURIComponent('name');
+    var encodedValue = encodeURIComponent('casa');
+    formBody.push(encodedKey + "=" + encodedValue);
+  
+  formBody = formBody.join("&");
+    
+  fetch('http://localhost:3000/oidos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    },
+    body: formBody
+  
+ });
+
+
 
   renderizar();
 

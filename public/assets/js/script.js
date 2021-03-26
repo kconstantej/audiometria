@@ -13,3 +13,4 @@ function comprobarClave(){
        alert("contraseñas diferentes");
 } 
 
+
